@@ -1,0 +1,32 @@
+STR,RAM,0,32,   ; initial x position
+STR,RAM,1,32,   ; initial y position
+STR,RAM,2,1,    ; speed x
+STR,RAM,3,2,    ; speed y
+STR,RAM,4,128,  ; boundary for x
+STR,RAM,5,128,  ; boundary for y
+STR,RAM,6,0,    ; new-boundary for x
+STR,RAM,7,0,    ; new-boundary for y
+SCR
+CLS
+DRAW,$0,$1,1
+UPD
+ADD,RAM,0,2,0,  ; changing the x position
+ADD,RAM,1,3,1,  ; changing the y position
+SUB,RAM,4,0,10, ; checking if crossed the x axis
+JMPN,24
+SUB,RAM,5,1,10, ; checking if crossed the y axis
+JMPN,26
+ADD,RAM,6,0,10, ; checking if crossed the x axis from the top
+JMPN,28
+ADD,RAM,7,1,10, ; checking if crossed the x axis from the top
+JMPN,30
+DEL,0.03
+JMP,9
+STR,RAM,2,-2,  ; changing x speed
+JMP,9
+STR,RAM,3,-1,  ; changing y speed
+JMP,9
+STR,RAM,2,3,   ; changing x speed back
+JMP,9
+STR,RAM,3,1,   ; changing y speed back
+JMP,9
