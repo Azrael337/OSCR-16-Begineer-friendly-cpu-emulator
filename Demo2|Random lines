@@ -1,0 +1,14 @@
+NOP
+SCR,                                    ; lines function
+DEL,0.1
+RAND,0,0,128
+RAND,1,0,128
+RAND,2,0,128
+RAND,3,0,128
+MOV,RAM,0,0
+MOV,RAM,1,1
+MOV,RAM,2,2
+MOV,RAM,3,3
+DRAW,$0,$1,$2,$3
+UPD
+JMP,2
